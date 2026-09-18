@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Exercicio_01.Models;
 
-namespace Exercicio_01.Models
+namespace Exercicio_01.Controllers
 {
     public class HomeController : Controller
     {

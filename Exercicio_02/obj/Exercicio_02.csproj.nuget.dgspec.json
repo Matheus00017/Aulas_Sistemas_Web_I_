@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\etec\\Desktop\\Aulas_Sistemas_Web_I_\\exercicio_02\\Exercicio_02.csproj": {}
+    "C:\\Users\\etec\\Desktop\\Nova pasta (2)\\Aulas_Sistemas_Web_I_\\Exercicio_02\\Exercicio_02.csproj": {}
   },
   "projects": {
-    "C:\\Users\\etec\\Desktop\\Aulas_Sistemas_Web_I_\\exercicio_02\\Exercicio_02.csproj": {
+    "C:\\Users\\etec\\Desktop\\Nova pasta (2)\\Aulas_Sistemas_Web_I_\\Exercicio_02\\Exercicio_02.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\etec\\Desktop\\Aulas_Sistemas_Web_I_\\exercicio_02\\Exercicio_02.csproj",
+        "projectUniqueName": "C:\\Users\\etec\\Desktop\\Nova pasta (2)\\Aulas_Sistemas_Web_I_\\Exercicio_02\\Exercicio_02.csproj",
         "projectName": "Exercicio_02",
-        "projectPath": "C:\\Users\\etec\\Desktop\\Aulas_Sistemas_Web_I_\\exercicio_02\\Exercicio_02.csproj",
+        "projectPath": "C:\\Users\\etec\\Desktop\\Nova pasta (2)\\Aulas_Sistemas_Web_I_\\Exercicio_02\\Exercicio_02.csproj",
         "packagesPath": "C:\\Users\\etec\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\etec\\Desktop\\Aulas_Sistemas_Web_I_\\exercicio_02\\obj\\",
+        "outputPath": "C:\\Users\\etec\\Desktop\\Nova pasta (2)\\Aulas_Sistemas_Web_I_\\Exercicio_02\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
