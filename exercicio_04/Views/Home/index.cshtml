@@ -1,0 +1,60 @@
+@model Exercicio_04.Models.Mensagem
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: steelblue;
+        }
+
+        .container {
+            align-items: center;
+            font-size: 36px;
+        }
+
+        h1{
+            color: whitesmoke;
+            font-family: Arial, sans-serif;
+
+        }
+        p {
+            color: whitesmoke;
+            font-family: Arial, sans-serif;
+        }
+        img{
+            width: 400px;
+            height: 400px;
+        }
+
+        button{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Texto</h1>
+        <p>texto: @Model.texto</p>
+        <p>texto: @Model.texto2</p>
+        <p>foto:</p>
+        <img src="@Model.imagemUrl" alt="imagem">
+    </div>
+    <form method="post" action="/Home/botao">
+        
+        <button type="submit">Clique no botão</button>
+    
+    </form>
+
+    @if( !string.IsNullOrEmpty(Model.texto3)){
+
+        <p>@Model.texto3</p>
+    
+    }
+</body>
+</html>
