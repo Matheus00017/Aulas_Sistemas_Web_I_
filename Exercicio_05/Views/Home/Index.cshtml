@@ -1,0 +1,39 @@
+@model Exercicio_05.Models.Numero
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colocando numeros</title>
+    <style>
+        body{
+            background-color: slateblue;
+            font-size: 18px;
+        }
+        p{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Soma dos numeros</h1>
+    
+    @if(!Model.exibirSoma){
+        <p>@Model.numero1</p>
+        <p>@Model.numero2</p>
+    }
+
+
+    <form method="post" action="/Home/botao">
+        <input type="hidden" name="numero1" value="@Model.numero1">
+        <input type="hidden" name="numero2" value="@Model.numero2">
+        <input type="hidden" name="exibirSoma" value="@Model.exibirSoma">
+        <button type="submit">@(Model.exibirSoma ? "Esconder soma" : "Mostrar soma")</button>
+    </form>
+
+    @if( Model.exibirSoma){
+        <p>@Model.soma</p>
+    }
+</body>
+</html>
