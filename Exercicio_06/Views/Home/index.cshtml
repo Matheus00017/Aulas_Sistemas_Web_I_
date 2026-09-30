@@ -1,0 +1,48 @@
+@model Exercicio_06.Models.Mensagem
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: steelblue;
+        }
+
+        .container {
+            align-items: center;
+            font-size: 36px;
+        }
+
+        h1{
+            color: whitesmoke;
+            font-family: Arial, sans-serif;
+
+        }
+        p {
+            color: whitesmoke;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Texto</h1>
+        <p>texto: @Model.texto</p>
+    </div>
+
+    <form action="/Home/Calculo" method="post">
+        <input name="numero1" value="@Model.numero1">
+        <input name="numero2" value="@Model.numero2">
+
+        <button name="operacao" value="soma" type="submit"></button>
+    </form>
+
+    @if(string.IsNullOrEmpty(Model.operacao) ){
+        <p>@Model.resultado</p>
+    }
+</body>
+</html>
