@@ -1,0 +1,25 @@
+@model Exercicio_09.Models.Calculo;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="post" action="/Home/Calcular">
+        <input name="numero1" value="@Model.numero1">
+        <input name="numero2" value="@Model.numero2">
+
+        <button type="submit" name="operacao" value="Soma">Soma</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.operacao))
+    {
+        <p>@Model.resultado</p>
+    }
+    
+</body>
+</html>
