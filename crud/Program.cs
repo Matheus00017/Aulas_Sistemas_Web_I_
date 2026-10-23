@@ -43,7 +43,20 @@ app.MapControllerRoute(
 
     frajola.ExecuteNonQuery();
 
+    string sqlGrava = @"insert into usuario (
+        usuarios,
+        senha,
+        nome
+        )
+        values (@pusuarios,@psenha,@nombre)
+    ";
+    using var cmdgrava = new SqliteCommand(sqlGrava, cone);
 
+    cmdgrava.Parameters.AddWithValue("@pusuarios","teste");
+    cmdgrava.Parameters.AddWithValue("@psenha", "123");
+    cmdgrava.Parameters.AddWithValue("@nombre","Michael Jackson");
+
+    cmdgrava.ExecuteNonQuery();
 
 
 
