@@ -29,7 +29,9 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
     string conexao = @"Data Source = teste.db";
+
     using var cone = new SqliteConnection(conexao);
+    
     cone.Open();
 
     string sql = @"create table if not exists usuario (
