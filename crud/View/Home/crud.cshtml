@@ -1,0 +1,99 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="status">ola</p>
+    <input id="sid" placeholder="id">
+    <input id="susu" placeholder="usuario">
+    <input id="ssenha" placeholder="senha">
+    <input id="snome" placeholder="nome">
+    <button onclick="listar()">buscar</button>
+    <button onclick="grava()">gravar</button>
+    <button onclick="deletes()">apagar</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>usuario</th>
+                <th>senha</th>
+                <th>nome</th>
+            </tr>
+        </thead>
+        <tbody id="corpo_tabela">
+        </tbody>
+    </table>
+    <script>
+            async function grava() {
+                let ver = document.getElementById("status").innerText;
+                let id = document.getElementById("sid").value;
+                let usu = document.getElementById("susu").value;
+                let senha = document.getElementById("ssenha").value;
+                let nome = document.getElementById("snome").value;
+                if (ver == "atualiza") {
+                    let pega = await fetch(`/Home/atualizar?usu=${encodeURIComponent(usu)}&;senha=${encodeURIComponent(senha)}&
+    amp;nome=${encodeURIComponent(nome)}&;id=${encodeURIComponent(id)} `);
+                    let respo = await pega.text();
+                    document.getElementById("status").innerText = respo;
+                }
+                else {
+                    let pega = await fetch(`/Home/gravar?usu=${encodeURIComponent(usu)}&;senha=${encodeURIComponent(senha)}&;
+    nome=${encodeURIComponent(nome)} `);
+                    let respo = await pega.text();
+                    document.getElementById("status").innerText = respo;
+                }
+                listar();
+                document.getElementById("status").innerText = "erro";
+            }
+            async function listar() {
+                document.getElementById("status").innerText = "busca";
+                let pega = await fetch("/Home/lista");
+                let texto = await pega.json();
+                let corpo = document.getElementById("corpo_tabela");
+                corpo.innerHTML = "";
+                for (let i = 0; i < texto.length; i++) {
+                    let u = texto[i];
+                    corpo.innerHTML += `
+    <tr>
+    <td>${u.id}</td>
+    <td>${u.usu}</td>
+    <td>${u.senha}</td>
+    <td>${u.nome}</td>
+    <td><button onclick="seleciona( '${u.id}' , '${u.usu}' , '${u.senha}' , '${u.nome}' );" >clique<
+    /button></td>
+    </tr>
+    `;
+                }
+            }
+            function seleciona(id, usu, senha, nome) {
+                document.getElementById("sid").value = id;
+                document.getElementById("susu").value = usu;
+                document.getElementById("ssenha").value = senha;
+                document.getElementById("snome").value = nome;
+                document.getElementById("status").innerText = "atualiza";
+            }
+            async function deletes() {
+                let ver = document.getElementById("status").innerText;
+                let id = document.getElementById("sid").value;
+                if (ver == "atualiza") {
+                    let pega = await fetch(`/Home/deletar?id=${encodeURIComponent(id)}`);
+                    let texto = pega.text();
+                    document.getElementById("status").innerText = texto;
+                }
+                else {
+                    alert("selecione !!!!");
+                }
+                listar();
+            }
+    </script>
+</body>
+
+</html>

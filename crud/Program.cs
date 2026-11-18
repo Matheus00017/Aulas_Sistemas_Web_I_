@@ -37,7 +37,7 @@ app.MapControllerRoute(
     string sql = @"create table if not exists usuario (
 
         id integer primary key autoincrement,
-        usuarios text unique,
+        usu text unique,
         senha text,
         nome text
     )";
@@ -45,18 +45,14 @@ app.MapControllerRoute(
 
     frajola.ExecuteNonQuery();
 
-    string sqlGrava = @"insert into usuario (
-        usuarios,
-        senha,
-        nome
-        )
-        values (@pusuarios,@psenha,@nombre)
-    ";
+    string sqlGrava = @"insert or ignore into usuario (usu, senha, nome)
+        values (@pusu, @psenha, @pnome)";
+
     using var cmdgrava = new SqliteCommand(sqlGrava, cone);
 
     cmdgrava.Parameters.AddWithValue("@pusuarios","teste");
     cmdgrava.Parameters.AddWithValue("@psenha", "123");
-    cmdgrava.Parameters.AddWithValue("@nombre","Michael Jackson");
+    cmdgrava.Parameters.AddWithValue("@nome","Michael Jackson");
 
     cmdgrava.ExecuteNonQuery();
 
