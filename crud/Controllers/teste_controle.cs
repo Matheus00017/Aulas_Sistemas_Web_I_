@@ -62,14 +62,14 @@ namespace crud.Controllers
 
             cone.Open();
 
-            string sqlLogar = @"SELECT * FROM USUARIO WHERE
-            USUARIOS = @pusu and senha = @Senha
-            ";
+            string sqlLogar = @"SELECT * FROM usuario WHERE usu = @pusu AND senha = @senha";
+            
+            
 
             using var cmdLogin = new SqliteCommand(sqlLogar, cone);
 
             cmdLogin.Parameters.AddWithValue("@pusu", usuario);
-            cmdLogin.Parameters.AddWithValue("@Senha", senha);
+            cmdLogin.Parameters.AddWithValue("@senha", senha);
 
             using var confere = cmdLogin.ExecuteReader();
 

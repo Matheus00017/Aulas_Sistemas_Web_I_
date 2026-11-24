@@ -50,9 +50,9 @@ app.MapControllerRoute(
 
     using var cmdgrava = new SqliteCommand(sqlGrava, cone);
 
-    cmdgrava.Parameters.AddWithValue("@pusuarios","teste");
+    cmdgrava.Parameters.AddWithValue("@pusu","teste");
     cmdgrava.Parameters.AddWithValue("@psenha", "123");
-    cmdgrava.Parameters.AddWithValue("@nome","Michael Jackson");
+    cmdgrava.Parameters.AddWithValue("@pnome","Michael Jackson");
 
     cmdgrava.ExecuteNonQuery();
 

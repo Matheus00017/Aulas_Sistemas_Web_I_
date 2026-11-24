@@ -1,0 +1,44 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <h2>Login</h2>
+
+    <p>Usuário</p>
+    <input id="usu">
+
+    <p>Senha</p>
+    <input id="senha" type="password">
+
+    <br><br>
+    <button onclick="login()">Entrar</button>
+
+    <p id="resposta"></p>
+
+    <script>
+    async function login() {
+        const usu = document.getElementById("usu").value;
+        const senha = document.getElementById("senha").value;
+
+        const rota = await fetch(`/Home/logar?usuario=${encodeURIComponent(usu)}&senha=${encodeURIComponent(senha)}`);
+        const resposta = await rota.text();
+
+        if (resposta !== "ERRO") {
+            document.getElementById("resposta").innerText = "Bem-vindo, " + resposta;
+            window.location.href = "/Home/crud";
+        } else {
+            document.getElementById("resposta").innerText = "Usuário ou senha incorretos";
+        }
+    }
+</script>
+</body>
